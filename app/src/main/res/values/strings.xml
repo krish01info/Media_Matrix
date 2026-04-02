@@ -1,3 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Media_Matrix</string>
+    <string name="app_name">Media Matrix</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_today">Today</string>
+    <string name="nav_radio">Radio</string>
+    <string name="nav_search">Search</string>
+
+    <!-- Section Headers -->
+    <string name="section_featured">Featured</string>
+    <string name="section_trending_now">Trending Now</string>
+    <string name="section_top_charts">Top Charts</string>
+    <string name="section_todays_newspapers">Today\'s Newspapers</string>
+    <string name="section_morning_brief">Morning Brief</string>
+    <string name="section_developing_now">Developing Now</string>
+    <string name="section_todays_trending">Today\'s Trending</string>
+    <string name="section_regional_charts">Regional Charts</string>
+    <string name="section_live_streams">Live Streams</string>
+    <string name="section_podcasts">Podcasts</string>
+    <string name="section_browse_categories">Browse Categories</string>
+    <string name="section_independent_reporters">Independent Reporters</string>
+
+    <!-- Actions -->
+    <string name="view_all">View All</string>
+    <string name="see_all">See All</string>
+    <string name="search_hint">Artists, topics, or reporters</string>
+    <string name="login">Log In</string>
+    <string name="register">Register</string>
+    <string name="logout">Log Out</string>
+    <string name="settings">Settings</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="share">Share</string>
+
+    <!-- Auth -->
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="username_hint">Username</string>
+    <string name="login_title">Welcome Back</string>
+    <string name="register_title">Create Account</string>
+    <string name="no_account">Don\'t have an account? Register</string>
+    <string name="has_account">Already have an account? Log In</string>
+
+    <!-- Badges -->
+    <string name="truth_score">TRUTH SCORE</string>
+    <string name="verified">VERIFIED</string>
+    <string name="premium">PREMIUM</string>
+    <string name="live">LIVE</string>
+    <string name="breaking">BREAKING</string>
+    <string name="developing">DEVELOPING</string>
+
+    <!-- Drawer -->
+    <string name="drawer_my_feed">My Feed</string>
+    <string name="drawer_trending">Trending</string>
+    <string name="drawer_live_channels">Live Channels</string>
+    <string name="drawer_e_newspaper">E-Newspaper</string>
+    <string name="drawer_search">Search</string>
+
+    <!-- Drawer Special Coverage -->
+    <string name="special_coverage">SPECIAL COVERAGE</string>
+    <string name="elections_2024">Elections 2024</string>
+    <string name="ai_revolution">AI Revolution</string>
+
+    <!-- Drawer Topics -->
+    <string name="topics">TOPICS</string>
+    <string name="politics">Politics</string>
+    <string name="economy">Economy</string>
+    <string name="technology">Technology</string>
+
+    <!-- Search -->
+    <string name="scope_national">National</string>
+    <string name="scope_global">Global</string>
+    <string name="scope_verified">Verified Only</string>
+
+    <!-- Player -->
+    <string name="now_playing">Now Playing</string>
+    <string name="listeners">listeners</string>
+
+    <!-- Misc -->
+    <string name="stories_count">%d Stories</string>
+    <string name="interactions_count">%s Interactions</string>
+    <string name="time_ago">%s ago</string>
+    <string name="loading">Loading…</string>
+    <string name="error_loading">Failed to load data</string>
+    <string name="retry">Retry</string>
+    <string name="no_results">No results found</string>
 </resources>

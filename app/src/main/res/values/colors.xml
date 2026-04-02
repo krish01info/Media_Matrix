@@ -1,5 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base Dark Surface Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="surface_darkest">#FF060A13</color>
+    <color name="surface_dark">#FF0A0E17</color>
+    <color name="surface_medium">#FF111827</color>
+    <color name="surface_light">#FF1A2332</color>
+    <color name="surface_elevated">#FF1E293B</color>
+
+    <!-- Primary Accent (Teal / Cyan) -->
+    <color name="primary">#FF00D4AA</color>
+    <color name="primary_dark">#FF00B894</color>
+    <color name="primary_light">#FF4DFFD4</color>
+    <color name="primary_surface">#1A00D4AA</color>
+    <color name="primary_glow">#3300D4AA</color>
+
+    <!-- Secondary Accent (Blue) -->
+    <color name="secondary">#FF3B82F6</color>
+    <color name="secondary_dark">#FF2563EB</color>
+    <color name="secondary_light">#FF60A5FA</color>
+    <color name="secondary_surface">#1A3B82F6</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFE2E8F0</color>
+    <color name="text_secondary">#FF94A3B8</color>
+    <color name="text_tertiary">#FF64748B</color>
+    <color name="text_accent">#FF00D4AA</color>
+    <color name="text_on_primary">#FF0A0E17</color>
+
+    <!-- Status Colors -->
+    <color name="error">#FFFF6B6B</color>
+    <color name="warning">#FFFBBF24</color>
+    <color name="success">#FF22C55E</color>
+    <color name="info">#FF3B82F6</color>
+
+    <!-- Breaking / Live -->
+    <color name="breaking_red">#FFEF4444</color>
+    <color name="live_red">#FFDC2626</color>
+    <color name="developing_amber">#FFF59E0B</color>
+
+    <!-- Truth Score Colors -->
+    <color name="truth_high">#FF22C55E</color>
+    <color name="truth_medium">#FFFBBF24</color>
+    <color name="truth_low">#FFEF4444</color>
+    <color name="truth_badge_bg">#330A0E17</color>
+
+    <!-- Card/Border -->
+    <color name="border">#FF1E293B</color>
+    <color name="border_light">#FF334155</color>
+    <color name="card_background">#CC111827</color>
+    <color name="card_glass">#99111827</color>
+
+    <!-- Bottom Nav -->
+    <color name="bottom_nav_bg">#F00A0E17</color>
+    <color name="bottom_nav_active">#FF00D4AA</color>
+    <color name="bottom_nav_inactive">#FF64748B</color>
+
+    <!-- Gradients (pairs) -->
+    <color name="gradient_featured_start">#FF1A2332</color>
+    <color name="gradient_featured_end">#FF0A0E17</color>
+
+    <!-- Category Gradients -->
+    <color name="cat_global_start">#FF1E3A5F</color>
+    <color name="cat_global_end">#FF0F1F33</color>
+    <color name="cat_tech_start">#FF2D1B4E</color>
+    <color name="cat_tech_end">#FF1A0F2E</color>
+    <color name="cat_politics_start">#FF5C1A1A</color>
+    <color name="cat_politics_end">#FF2E0D0D</color>
+    <color name="cat_science_start">#FF1A3C2E</color>
+    <color name="cat_science_end">#FF0D1F17</color>
+
+    <!-- Premium Badge -->
+    <color name="premium_gold">#FFFBBF24</color>
+    <color name="premium_gold_dark">#FFD97706</color>
+
+    <!-- Verified Badge -->
+    <color name="verified_blue">#FF3B82F6</color>
+
+    <!-- Transparent -->
+    <color name="transparent">#00000000</color>
+    <color name="scrim">#99000000</color>
 </resources>
