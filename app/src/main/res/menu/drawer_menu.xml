@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_search"
+            android:icon="@drawable/ic_search"
+            android:title="@string/drawer_search" />
+        <item
+            android:id="@+id/drawer_my_feed"
+            android:icon="@drawable/ic_feed"
+            android:title="@string/drawer_my_feed" />
+        <item
+            android:id="@+id/drawer_trending"
+            android:icon="@drawable/ic_trending"
+            android:title="@string/drawer_trending" />
+        <item
+            android:id="@+id/drawer_live_channels"
+            android:icon="@drawable/ic_live"
+            android:title="@string/drawer_live_channels" />
+        <item
+            android:id="@+id/drawer_e_newspaper"
+            android:icon="@drawable/ic_newspaper"
+            android:title="@string/drawer_e_newspaper" />
+    </group>
+
+    <item android:title="@string/special_coverage">
+        <menu>
+            <item
+                android:id="@+id/drawer_elections"
+                android:icon="@drawable/ic_election"
+                android:title="@string/elections_2024" />
+            <item
+                android:id="@+id/drawer_ai_revolution"
+                android:icon="@drawable/ic_ai"
+                android:title="@string/ai_revolution" />
+        </menu>
+    </item>
+
+    <item android:title="@string/topics">
+        <menu>
+            <item
+                android:id="@+id/drawer_politics"
+                android:icon="@drawable/ic_politics"
+                android:title="@string/politics" />
+            <item
+                android:id="@+id/drawer_economy"
+                android:icon="@drawable/ic_economy"
+                android:title="@string/economy" />
+            <item
+                android:id="@+id/drawer_technology"
+                android:icon="@drawable/ic_technology"
+                android:title="@string/technology" />
+        </menu>
+    </item>
+</menu>

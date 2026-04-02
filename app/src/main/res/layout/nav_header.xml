@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_header_height"
+    android:background="@drawable/bg_drawer_header"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_lg">
+
+    <ImageView
+        android:id="@+id/nav_avatar"
+        android:layout_width="@dimen/avatar_size_lg"
+        android:layout_height="@dimen/avatar_size_lg"
+        android:background="@drawable/bg_gradient_primary"
+        android:contentDescription="Avatar"
+        android:padding="2dp"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/nav_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:text="Krish Sharma"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nav_premium_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:background="@drawable/bg_premium_badge"
+        android:paddingStart="12dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="2dp"
+        android:text="@string/premium"
+        android:textColor="@color/surface_darkest"
+        android:textSize="@dimen/text_overline"
+        android:textStyle="bold" />
+
+</LinearLayout>
