@@ -93,7 +93,7 @@ public class AuthRepository {
             String refreshToken = preferenceManager.getRefreshToken();
             if (refreshToken != null) {
                 Map<String, String> body = new HashMap<>();
-                body.put("refreshToken", refreshToken);
+                body.put("refresh_token", refreshToken); // backend expects snake_case
                 apiService.logout(body).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {}

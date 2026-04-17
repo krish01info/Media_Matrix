@@ -5,21 +5,37 @@ import com.example.media_matrix.domain.model.RegionalChart;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
+/**
+ * Backend: GET /api/today/feed
+ * Shape: { success, data: { morning_brief, developing, trending, regional_charts } }
+ */
 public class TodayFeedResponse {
-    @SerializedName("morningBrief")
-    private List<Article> morningBrief;
 
-    @SerializedName("developing")
-    private List<Article> developing;
+    @SerializedName("success")
+    private boolean success;
 
-    @SerializedName("trending")
-    private List<Article> trending;
+    @SerializedName("data")
+    private TodayFeedData data;
 
-    @SerializedName("regionalCharts")
-    private List<RegionalChart> regionalCharts;
+    public boolean isSuccess() { return success; }
+    public TodayFeedData getData() { return data; }
 
-    public List<Article> getMorningBrief() { return morningBrief; }
-    public List<Article> getDeveloping() { return developing; }
-    public List<Article> getTrending() { return trending; }
-    public List<RegionalChart> getRegionalCharts() { return regionalCharts; }
+    public List<Article> getMorningBrief()     { return data != null ? data.morningBrief  : null; }
+    public List<Article> getDeveloping()       { return data != null ? data.developing    : null; }
+    public List<Article> getTrending()         { return data != null ? data.trending      : null; }
+    public List<RegionalChart> getRegionalCharts() { return data != null ? data.regionalCharts : null; }
+
+    public static class TodayFeedData {
+        @SerializedName("morning_brief")       // snake_case from backend
+        private List<Article> morningBrief;
+
+        @SerializedName("developing")
+        private List<Article> developing;
+
+        @SerializedName("trending")
+        private List<Article> trending;
+
+        @SerializedName("regional_charts")    // snake_case from backend
+        private List<RegionalChart> regionalCharts;
+    }
 }

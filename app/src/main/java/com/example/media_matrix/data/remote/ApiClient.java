@@ -11,10 +11,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    // Change this to your backend server URL
-    // For Android Emulator → localhost: use 10.0.2.2
-    // For physical device: use your machine's local IP
-    private static final String BASE_URL = "http://10.0.2.2:3000/api/";
+    // For physical device over USB: use 127.0.0.1 and run `adb reverse tcp:3000 tcp:3000`
+    // For Android Emulator: use 10.0.2.2
+    private static final String BASE_URL = "http://127.0.0.1:3000/api/";
 
     private static volatile ApiClient instance;
     private final ApiService apiService;

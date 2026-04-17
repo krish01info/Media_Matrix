@@ -5,21 +5,38 @@ import com.example.media_matrix.domain.model.Newspaper;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
+/**
+ * Backend: GET /api/home/feed
+ * Shape: { success, data: { featured, trending, top_charts, newspapers } }
+ */
 public class HomeFeedResponse {
-    @SerializedName("featured")
-    private List<Article> featured;
 
-    @SerializedName("trending")
-    private List<Article> trending;
+    @SerializedName("success")
+    private boolean success;
 
-    @SerializedName("topCharts")
-    private List<Article> topCharts;
+    @SerializedName("data")
+    private HomeFeedData data;
 
-    @SerializedName("newspapers")
-    private List<Newspaper> newspapers;
+    public boolean isSuccess() { return success; }
+    public HomeFeedData getData() { return data; }
 
-    public List<Article> getFeatured() { return featured; }
-    public List<Article> getTrending() { return trending; }
-    public List<Article> getTopCharts() { return topCharts; }
-    public List<Newspaper> getNewspapers() { return newspapers; }
+    // Convenience getters (delegates into nested data)
+    public List<Article> getFeatured()  { return data != null ? data.featured  : null; }
+    public List<Article> getTrending()  { return data != null ? data.trending  : null; }
+    public List<Article> getTopCharts() { return data != null ? data.topCharts : null; }
+    public List<Newspaper> getNewspapers() { return data != null ? data.newspapers : null; }
+
+    public static class HomeFeedData {
+        @SerializedName("featured")
+        private List<Article> featured;
+
+        @SerializedName("trending")
+        private List<Article> trending;
+
+        @SerializedName("top_charts")          // backend key is snake_case
+        private List<Article> topCharts;
+
+        @SerializedName("newspapers")
+        private List<Newspaper> newspapers;
+    }
 }

@@ -4,25 +4,40 @@ import com.example.media_matrix.domain.model.*;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
+/**
+ * Backend: GET /api/global/feed
+ * Shape: { success, data: { highlights, map_insights, trending_topics, compare_coverage, independent_voices } }
+ */
 public class GlobalFeedResponse {
-    @SerializedName("highlights")
-    private List<Article> highlights;
 
-    @SerializedName("trendingTopics")
-    private List<TrendingTopic> trendingTopics;
+    @SerializedName("success")
+    private boolean success;
 
-    @SerializedName("compareCoverage")
-    private List<CompareCoverageResponse> compareCoverage;
+    @SerializedName("data")
+    private GlobalFeedData data;
 
-    @SerializedName("independentVoices")
-    private List<Reporter> independentVoices;
+    public boolean isSuccess() { return success; }
+    public GlobalFeedData getData() { return data; }
 
-    @SerializedName("regionalPulse")
-    private List<Article> regionalPulse;
+    public List<Article> getHighlights()       { return data != null ? data.highlights       : null; }
+    public List<TrendingTopic> getTrendingTopics() { return data != null ? data.trendingTopics : null; }
+    public List<CompareCoverageResponse> getCompareCoverage() { return data != null ? data.compareCoverage : null; }
+    public List<Reporter> getIndependentVoices() { return data != null ? data.independentVoices : null; }
 
-    public List<Article> getHighlights() { return highlights; }
-    public List<TrendingTopic> getTrendingTopics() { return trendingTopics; }
-    public List<CompareCoverageResponse> getCompareCoverage() { return compareCoverage; }
-    public List<Reporter> getIndependentVoices() { return independentVoices; }
-    public List<Article> getRegionalPulse() { return regionalPulse; }
+    public static class GlobalFeedData {
+        @SerializedName("highlights")
+        private List<Article> highlights;
+
+        @SerializedName("map_insights")         // backend key
+        private List<Object> mapInsights;       // WorldMapInsight (placeholder)
+
+        @SerializedName("trending_topics")      // snake_case from backend
+        private List<TrendingTopic> trendingTopics;
+
+        @SerializedName("compare_coverage")     // snake_case from backend
+        private List<CompareCoverageResponse> compareCoverage;
+
+        @SerializedName("independent_voices")   // snake_case from backend
+        private List<Reporter> independentVoices;
+    }
 }

@@ -11,6 +11,7 @@ import com.example.media_matrix.domain.model.Article;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.example.media_matrix.data.remote.response.ApiResponse;
 
 public class ArticleDetailActivity extends AppCompatActivity {
     private ActivityArticleDetailBinding binding;
@@ -43,11 +44,11 @@ public class ArticleDetailActivity extends AppCompatActivity {
 
         // Fetch full article
         if (uuid != null) {
-            ApiClient.getInstance().getApiService().getArticle(uuid).enqueue(new Callback<Article>() {
+            ApiClient.getInstance().getApiService().getArticle(uuid).enqueue(new Callback<ApiResponse<Article>>() {
                 @Override
-                public void onResponse(Call<Article> call, Response<Article> response) {
-                    if (response.isSuccessful() && response.body() != null) {
-                        Article article = response.body();
+                public void onResponse(Call<ApiResponse<Article>> call, Response<ApiResponse<Article>> response) {
+                    if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
+                        Article article = response.body().getData();
                         binding.articleTitle.setText(article.getTitle());
                         binding.articleSource.setText(article.getSourceName());
                         binding.articleContent.setText(article.getContent() != null ? article.getContent() : article.getSummary());
@@ -55,7 +56,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
                     }
                 }
                 @Override
-                public void onFailure(Call<Article> call, Throwable t) {}
+                public void onFailure(Call<ApiResponse<Article>> call, Throwable t) {}
             });
         }
     }

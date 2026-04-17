@@ -4,21 +4,38 @@ import com.example.media_matrix.domain.model.Article;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
+/**
+ * Backend: GET /api/search?q=...
+ * Shape: { success, data: { articles: [...], page, limit } }
+ */
 public class SearchResponse {
+
+    @SerializedName("success")
+    private boolean success;
+
     @SerializedName("data")
-    private List<Article> data;
+    private SearchData data;
 
-    @SerializedName("total")
-    private int total;
+    public boolean isSuccess() { return success; }
+    public SearchData getData() { return data; }
 
-    @SerializedName("page")
-    private int page;
+    // Convenience helpers
+    public List<Article> getArticles() { return data != null ? data.articles : null; }
+    public int getPage()  { return data != null ? data.page  : 0; }
+    public int getLimit() { return data != null ? data.limit : 0; }
 
-    @SerializedName("query")
-    private String query;
+    public static class SearchData {
+        @SerializedName("articles")
+        private List<Article> articles;
 
-    public List<Article> getData() { return data; }
-    public int getTotal() { return total; }
-    public int getPage() { return page; }
-    public String getQuery() { return query; }
+        @SerializedName("page")
+        private int page;
+
+        @SerializedName("limit")
+        private int limit;
+
+        public List<Article> getArticles() { return articles; }
+        public int getPage()  { return page; }
+        public int getLimit() { return limit; }
+    }
 }

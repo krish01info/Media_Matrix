@@ -83,7 +83,7 @@ public interface ApiService {
     Call<ApiListResponse<RadioStream>> getRadioStreams();
 
     @GET("radio/streams/{id}")
-    Call<RadioStream> getRadioStream(@Path("id") int id);
+    Call<ApiResponse<RadioStream>> getRadioStream(@Path("id") int id);
 
     @GET("radio/podcasts")
     Call<ApiListResponse<Podcast>> getPodcasts();
@@ -100,7 +100,7 @@ public interface ApiService {
 
     // ===== Articles =====
     @GET("articles/{uuid}")
-    Call<Article> getArticle(@Path("uuid") String uuid);
+    Call<ApiResponse<Article>> getArticle(@Path("uuid") String uuid);
 
     @GET("articles/by-category/{slug}")
     Call<ApiListResponse<Article>> getArticlesByCategory(@Path("slug") String slug);
@@ -113,10 +113,10 @@ public interface ApiService {
 
     // ===== User =====
     @GET("user/profile")
-    Call<User> getProfile();
+    Call<ApiResponse<User>> getProfile();
 
     @PUT("user/profile")
-    Call<User> updateProfile(@Body Map<String, String> body);
+    Call<ApiResponse<User>> updateProfile(@Body Map<String, String> body);
 
     @GET("user/bookmarks")
     Call<ApiListResponse<Article>> getBookmarks();
