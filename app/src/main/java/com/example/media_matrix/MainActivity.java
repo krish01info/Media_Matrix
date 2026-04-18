@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         // Edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(binding.drawerLayout, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(0, systemBars.top, 0, 0);
+            // Instead of just padding top, apply insets to avoid content being under status bar
+            binding.appBar.setPadding(0, systemBars.top, 0, 0);
+            binding.bottomNav.setPadding(0, 0, 0, systemBars.bottom);
             return insets;
         });
 
