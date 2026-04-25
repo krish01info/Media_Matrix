@@ -41,6 +41,8 @@
     <string name="register_title">Create Account</string>
     <string name="no_account">Don\'t have an account? Register</string>
     <string name="has_account">Already have an account? Log In</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="or_divider">OR</string>
 
     <!-- Badges -->
     <string name="truth_score">TRUTH SCORE</string>

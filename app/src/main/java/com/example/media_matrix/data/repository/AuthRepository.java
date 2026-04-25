@@ -88,6 +88,34 @@ public class AuthRepository {
         return data;
     }
 
+    public LiveData<AuthResponse> googleLogin(String idToken) {
+        MutableLiveData<AuthResponse> data = new MutableLiveData<>();
+        Map<String, String> body = new HashMap<>();
+        body.put("id_token", idToken);
+
+        apiService.googleAuth(body).enqueue(new Callback<AuthResponse>() {
+            @Override
+            public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    AuthResponse auth = response.body();
+                    if (preferenceManager != null) {
+                        preferenceManager.saveTokens(auth.getAccessToken(), auth.getRefreshToken());
+                        preferenceManager.saveUser(auth.getUser());
+                    }
+                    data.setValue(auth);
+                } else {
+                    data.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AuthResponse> call, Throwable t) {
+                data.setValue(null);
+            }
+        });
+        return data;
+    }
+
     public void logout() {
         if (preferenceManager != null) {
             String refreshToken = preferenceManager.getRefreshToken();

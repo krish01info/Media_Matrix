@@ -24,6 +24,9 @@ public interface ApiService {
     @POST("auth/logout")
     Call<Void> logout(@Body Map<String, String> body);
 
+    @POST("auth/google")
+    Call<AuthResponse> googleAuth(@Body Map<String, String> body);
+
     // ===== Home Screen =====
     @GET("home/feed")
     Call<HomeFeedResponse> getHomeFeed();

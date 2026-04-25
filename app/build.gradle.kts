@@ -74,6 +74,11 @@ dependencies {
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
 
+    // Google Sign-In (Credential Manager)
+    implementation(libs.credentials)
+    implementation(libs.credentials.play.services.auth)
+    implementation(libs.googleid)
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
