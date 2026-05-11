@@ -11,19 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/category_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Category"
+            android:scaleType="centerCrop" />
+
         <View
             android:id="@+id/category_gradient"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <ImageView
-            android:id="@+id/category_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:alpha="0.15"
-            android:contentDescription="Category"
-            android:scaleType="centerCrop" />
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_bottom_overlay" />
 
         <TextView
             android:id="@+id/category_name"

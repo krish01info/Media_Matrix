@@ -38,6 +38,14 @@ public class SearchViewModel extends ViewModel {
         });
     }
 
+    public void searchByCategory(String slug) {
+        isSearching.setValue(true);
+        repository.searchByCategory(slug).observeForever(result -> {
+            isSearching.setValue(false);
+            searchResults.setValue(result);
+        });
+    }
+
     public LiveData<List<Category>> getCategories() { return categories; }
     public LiveData<List<Reporter>> getReporters() { return reporters; }
     public LiveData<SearchResponse> getSearchResults() { return searchResults; }

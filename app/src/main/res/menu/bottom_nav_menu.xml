@@ -9,9 +9,9 @@
         android:icon="@drawable/ic_today"
         android:title="@string/nav_today" />
     <item
-        android:id="@+id/nav_radio"
-        android:icon="@drawable/ic_radio"
-        android:title="@string/nav_radio" />
+        android:id="@+id/nav_live"
+        android:icon="@drawable/ic_live_tv"
+        android:title="@string/nav_live" />
     <item
         android:id="@+id/nav_search"
         android:icon="@drawable/ic_search"

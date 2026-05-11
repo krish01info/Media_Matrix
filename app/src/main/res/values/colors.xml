@@ -4,76 +4,76 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="surface_darkest">#FF060A13</color>
-    <color name="surface_dark">#FF0A0E17</color>
-    <color name="surface_medium">#FF111827</color>
-    <color name="surface_light">#FF1A2332</color>
-    <color name="surface_elevated">#FF1E293B</color>
+    <color name="surface_darkest">#FF080C14</color>
+    <color name="surface_dark">#FF0F172A</color>
+    <color name="surface_medium">#FF1E293B</color>
+    <color name="surface_light">#FF334155</color>
+    <color name="surface_elevated">#FF475569</color>
 
-    <!-- Primary Accent (Teal / Cyan) -->
-    <color name="primary">#FF00D4AA</color>
-    <color name="primary_dark">#FF00B894</color>
-    <color name="primary_light">#FF4DFFD4</color>
-    <color name="primary_surface">#1A00D4AA</color>
-    <color name="primary_glow">#3300D4AA</color>
+    <!-- Primary Accent (Indigo / Royal Blue) - More modern and professional -->
+    <color name="primary">#FF6366F1</color>
+    <color name="primary_dark">#FF4F46E5</color>
+    <color name="primary_light">#FF818CF8</color>
+    <color name="primary_surface">#1A6366F1</color>
+    <color name="primary_glow">#336366F1</color>
 
-    <!-- Secondary Accent (Blue) -->
-    <color name="secondary">#FF3B82F6</color>
-    <color name="secondary_dark">#FF2563EB</color>
-    <color name="secondary_light">#FF60A5FA</color>
-    <color name="secondary_surface">#1A3B82F6</color>
+    <!-- Secondary Accent (Cyan) -->
+    <color name="secondary">#FF06B6D4</color>
+    <color name="secondary_dark">#FF0891B2</color>
+    <color name="secondary_light">#FF22D3EE</color>
+    <color name="secondary_surface">#1A06B6D4</color>
 
-    <!-- Text Colors -->
-    <color name="text_primary">#FFE2E8F0</color>
-    <color name="text_secondary">#FF94A3B8</color>
-    <color name="text_tertiary">#FF64748B</color>
-    <color name="text_accent">#FF00D4AA</color>
-    <color name="text_on_primary">#FF0A0E17</color>
+    <!-- Text Colors - Improved contrast -->
+    <color name="text_primary">#FFF8FAFC</color>
+    <color name="text_secondary">#FFCBD5E1</color>
+    <color name="text_tertiary">#FF94A3B8</color>
+    <color name="text_accent">#FF6366F1</color>
+    <color name="text_on_primary">#FFFFFFFF</color>
 
     <!-- Status Colors -->
-    <color name="error">#FFFF6B6B</color>
-    <color name="warning">#FFFBBF24</color>
-    <color name="success">#FF22C55E</color>
+    <color name="error">#FFEF4444</color>
+    <color name="warning">#FFF59E0B</color>
+    <color name="success">#FF10B981</color>
     <color name="info">#FF3B82F6</color>
 
     <!-- Breaking / Live -->
-    <color name="breaking_red">#FFEF4444</color>
-    <color name="live_red">#FFDC2626</color>
+    <color name="breaking_red">#FFF43F5E</color>
+    <color name="live_red">#FFEF4444</color>
     <color name="developing_amber">#FFF59E0B</color>
 
     <!-- Truth Score Colors -->
-    <color name="truth_high">#FF22C55E</color>
-    <color name="truth_medium">#FFFBBF24</color>
+    <color name="truth_high">#FF10B981</color>
+    <color name="truth_medium">#FFF59E0B</color>
     <color name="truth_low">#FFEF4444</color>
-    <color name="truth_badge_bg">#330A0E17</color>
+    <color name="truth_badge_bg">#330F172A</color>
 
     <!-- Card/Border -->
     <color name="border">#FF1E293B</color>
     <color name="border_light">#FF334155</color>
-    <color name="card_background">#CC111827</color>
-    <color name="card_glass">#99111827</color>
+    <color name="card_background">#E61E293B</color>
+    <color name="card_glass">#B31E293B</color>
 
     <!-- Bottom Nav -->
-    <color name="bottom_nav_bg">#F00A0E17</color>
-    <color name="bottom_nav_active">#FF00D4AA</color>
-    <color name="bottom_nav_inactive">#FF64748B</color>
+    <color name="bottom_nav_bg">#F2080C14</color>
+    <color name="bottom_nav_active">#FF6366F1</color>
+    <color name="bottom_nav_inactive">#FF94A3B8</color>
 
     <!-- Gradients (pairs) -->
-    <color name="gradient_featured_start">#FF1A2332</color>
-    <color name="gradient_featured_end">#FF0A0E17</color>
+    <color name="gradient_featured_start">#FF334155</color>
+    <color name="gradient_featured_end">#FF0F172A</color>
 
     <!-- Category Gradients -->
-    <color name="cat_global_start">#FF1E3A5F</color>
-    <color name="cat_global_end">#FF0F1F33</color>
-    <color name="cat_tech_start">#FF2D1B4E</color>
-    <color name="cat_tech_end">#FF1A0F2E</color>
-    <color name="cat_politics_start">#FF5C1A1A</color>
-    <color name="cat_politics_end">#FF2E0D0D</color>
-    <color name="cat_science_start">#FF1A3C2E</color>
-    <color name="cat_science_end">#FF0D1F17</color>
+    <color name="cat_global_start">#FF312E81</color>
+    <color name="cat_global_end">#FF1E1B4B</color>
+    <color name="cat_tech_start">#FF4C1D95</color>
+    <color name="cat_tech_end">#FF2E1065</color>
+    <color name="cat_politics_start">#FF7F1D1D</color>
+    <color name="cat_politics_end">#FF450A0A</color>
+    <color name="cat_science_start">#FF064E3B</color>
+    <color name="cat_science_end">#FF065F46</color>
 
     <!-- Premium Badge -->
-    <color name="premium_gold">#FFFBBF24</color>
+    <color name="premium_gold">#FFF59E0B</color>
     <color name="premium_gold_dark">#FFD97706</color>
 
     <!-- Verified Badge -->

@@ -4,19 +4,15 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.media_matrix.data.local.PreferenceManager;
 import com.example.media_matrix.data.remote.ApiClient;
 import com.example.media_matrix.databinding.ActivityMainBinding;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,18 +31,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Edge-to-edge
-        ViewCompat.setOnApplyWindowInsetsListener(binding.drawerLayout, (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            // Instead of just padding top, apply insets to avoid content being under status bar
-            binding.appBar.setPadding(0, systemBars.top, 0, 0);
-            binding.bottomNav.setPadding(0, 0, 0, systemBars.bottom);
-            return insets;
-        });
-
         setupNavigation();
         setupToolbar();
         setupDrawer();
+        setupThemeToggle();
     }
 
     private void setupNavigation() {
@@ -57,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             NavigationUI.setupWithNavController(binding.bottomNav, navController);
         }
 
-        // Update toolbar title on destination change
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.nav_home) {
                 binding.toolbarTitle.setText(R.string.app_name);
@@ -65,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 binding.toolbarTitle.setText(R.string.nav_today);
             } else if (destination.getId() == R.id.nav_radio) {
                 binding.toolbarTitle.setText(R.string.nav_radio);
+            } else if (destination.getId() == R.id.nav_live) {
+                binding.toolbarTitle.setText(R.string.nav_live);
             } else if (destination.getId() == R.id.nav_search) {
                 binding.toolbarTitle.setText(R.string.nav_search);
             }
@@ -87,6 +76,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void setupThemeToggle() {
+        binding.btnThemeToggle.setOnClickListener(v -> {
+            int currentMode = AppCompatDelegate.getDefaultNightMode();
+            if (currentMode == AppCompatDelegate.MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        });
+    }
+
     private void setupDrawer() {
         binding.navView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -99,12 +99,11 @@ public class MainActivity extends AppCompatActivity {
             } else if (id == R.id.drawer_trending) {
                 navController.navigate(R.id.nav_today);
             } else if (id == R.id.drawer_live_channels) {
-                navController.navigate(R.id.nav_radio);
+                navController.navigate(R.id.nav_live);
             }
             return true;
         });
 
-        // Update drawer header with user info
         updateDrawerHeader();
     }
 

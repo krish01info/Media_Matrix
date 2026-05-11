@@ -25,6 +25,22 @@ public class TodayFeedResponse {
     public List<Article> getTrending()         { return data != null ? data.trending      : null; }
     public List<RegionalChart> getRegionalCharts() { return data != null ? data.regionalCharts : null; }
 
+    /**
+     * Factory method — build a TodayFeedResponse from in-memory lists.
+     * Used by TodayRepository when assembling results from public APIs.
+     */
+    public static TodayFeedResponse fromLists(List<Article> morningBrief, List<Article> developing,
+                                               List<Article> trending, List<RegionalChart> regionalCharts) {
+        TodayFeedResponse r = new TodayFeedResponse();
+        r.success = true;
+        r.data = new TodayFeedData();
+        r.data.morningBrief   = morningBrief;
+        r.data.developing     = developing;
+        r.data.trending       = trending;
+        r.data.regionalCharts = regionalCharts;
+        return r;
+    }
+
     public static class TodayFeedData {
         @SerializedName("morning_brief")       // snake_case from backend
         private List<Article> morningBrief;

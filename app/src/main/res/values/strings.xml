@@ -6,6 +6,7 @@
     <string name="nav_home">Home</string>
     <string name="nav_today">Today</string>
     <string name="nav_radio">Radio</string>
+    <string name="nav_live">Live TV</string>
     <string name="nav_search">Search</string>
 
     <!-- Section Headers -->
@@ -19,6 +20,9 @@
     <string name="section_regional_charts">Regional Charts</string>
     <string name="section_live_streams">Live Streams</string>
     <string name="section_podcasts">Podcasts</string>
+    <string name="section_live_channels">Live News Channels</string>
+    <string name="section_live_now">Live Now 🔴</string>
+    <string name="section_all_channels">ALL CHANNELS</string>
     <string name="section_browse_categories">Browse Categories</string>
     <string name="section_independent_reporters">Independent Reporters</string>
 

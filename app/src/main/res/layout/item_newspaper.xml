@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_newspaper.xml  – Premium newspaper card for the Home screen horizontal strip.
+    Shows newspaper logo centred on a dark card with the name below and a category tag.
+-->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="@dimen/newspaper_card_width"
+    android:layout_width="130dp"
     android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/spacing_md"
+    android:foreground="?attr/selectableItemBackground"
     app:cardBackgroundColor="@color/surface_medium"
-    app:cardCornerRadius="@dimen/radius_md"
+    app:cardCornerRadius="@dimen/radius_lg"
     app:cardElevation="0dp">
 
     <LinearLayout
@@ -13,22 +18,64 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/newspaper_cover"
+        <!-- Logo area -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/newspaper_card_height"
-            android:background="@color/surface_light"
-            android:contentDescription="Newspaper Cover"
-            android:scaleType="centerCrop" />
+            android:layout_height="90dp"
+            android:background="@color/surface_light">
 
-        <TextView
-            android:id="@+id/newspaper_name"
+            <ImageView
+                android:id="@+id/newspaper_cover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Newspaper Logo"
+                android:padding="14dp"
+                android:scaleType="fitCenter" />
+
+            <!-- Category chip -->
+            <TextView
+                android:id="@+id/newspaper_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="@dimen/spacing_sm"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="6dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_overline" />
+
+        </FrameLayout>
+
+        <!-- Name + read cue -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/spacing_sm"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/text_label" />
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_sm">
+
+            <TextView
+                android:id="@+id/newspaper_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_label"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Tap to read →"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_overline" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

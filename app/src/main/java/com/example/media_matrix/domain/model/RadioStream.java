@@ -60,8 +60,12 @@ public class RadioStream {
 
     public void setId(int id) { this.id = id; }
     public void setTitle(String title) { this.title = title; }
+    public void setDescription(String description) { this.description = description; }
     public void setStreamUrl(String streamUrl) { this.streamUrl = streamUrl; }
     public void setThumbnailUrl(String thumbnailUrl) { this.thumbnailUrl = thumbnailUrl; }
     public void setLive(boolean live) { isLive = live; }
+    public void setHighQuality(boolean highQuality) { isHighQuality = highQuality; }
     public void setListenerCount(int listenerCount) { this.listenerCount = listenerCount; }
+    public void setDisplayOrder(int displayOrder) { this.displayOrder = displayOrder; }
+    public void setSource(Source source) { this.source = source; }
 }

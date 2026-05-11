@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 
+import com.example.media_matrix.R;
+import com.example.media_matrix.data.local.NewspaperDataSource;
 import com.example.media_matrix.databinding.FragmentHomeBinding;
 import com.example.media_matrix.domain.model.Article;
 import com.example.media_matrix.ui.article.ArticleDetailActivity;
@@ -21,6 +23,7 @@ import com.example.media_matrix.ui.home.adapter.FeaturedAdapter;
 import com.example.media_matrix.ui.home.adapter.NewspaperAdapter;
 import com.example.media_matrix.ui.home.adapter.TopChartsAdapter;
 import com.example.media_matrix.ui.home.adapter.TrendingAdapter;
+import com.example.media_matrix.ui.newspaper.NewspaperReaderActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -76,8 +79,16 @@ public class HomeFragment extends Fragment {
         binding.topChartsRecycler.setAdapter(topChartsAdapter);
         binding.topChartsRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Newspapers horizontal
+        // Newspapers horizontal — loaded from local curated data source
         newspaperAdapter = new NewspaperAdapter();
+        newspaperAdapter.setOnNewspaperClickListener(newspaper -> {
+            Intent intent = new Intent(getContext(), NewspaperReaderActivity.class);
+            intent.putExtra(NewspaperReaderActivity.EXTRA_NAME, newspaper.getSourceName());
+            intent.putExtra(NewspaperReaderActivity.EXTRA_URL, newspaper.getPdfUrl());
+            intent.putExtra(NewspaperReaderActivity.EXTRA_LOGO, newspaper.getCoverImageUrl());
+            startActivity(intent);
+        });
+        newspaperAdapter.setNewspapers(NewspaperDataSource.getNewspapers());
         binding.newspapersRecycler.setAdapter(newspaperAdapter);
         binding.newspapersRecycler.setLayoutManager(
                 new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -102,10 +113,6 @@ public class HomeFragment extends Fragment {
 
         viewModel.getTopCharts().observe(getViewLifecycleOwner(), articles -> {
             if (articles != null) topChartsAdapter.setArticles(articles);
-        });
-
-        viewModel.getNewspapers().observe(getViewLifecycleOwner(), newspapers -> {
-            if (newspapers != null) newspaperAdapter.setNewspapers(newspapers);
         });
 
         viewModel.getIsLoading().observe(getViewLifecycleOwner(), isLoading -> {

@@ -55,4 +55,6 @@ public class Source {
     public void setLogoUrl(String logoUrl) { this.logoUrl = logoUrl; }
     public void setVerified(boolean verified) { isVerified = verified; }
     public void setTrustScore(double trustScore) { this.trustScore = trustScore; }
+    public void setHasRadio(boolean hasRadio) { this.hasRadio = hasRadio; }
+    public void setHasNewspaper(boolean hasNewspaper) { this.hasNewspaper = hasNewspaper; }
 }

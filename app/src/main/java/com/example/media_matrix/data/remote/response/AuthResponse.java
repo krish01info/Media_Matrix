@@ -18,9 +18,29 @@ public class AuthResponse {
     @SerializedName("data")
     private AuthData data;
 
-    public boolean isSuccess() { return success; }
+    // Set by the repository when the call fails — not from JSON
+    private String errorMessage;
+
+    public boolean isSuccess() { return success && errorMessage == null; }
     public String getMessage() { return message; }
     public AuthData getData() { return data; }
+    public String getErrorMessage() { return errorMessage; }
+    public void setErrorMessage(String errorMessage) { this.errorMessage = errorMessage; }
+
+    /**
+     * Factory method to build a successful AuthResponse without a server.
+     * Used by the local-only AuthRepository.
+     */
+    public static AuthResponse localSuccess(User user) {
+        AuthResponse r = new AuthResponse();
+        r.success = true;
+        r.message = "OK";
+        r.data = new AuthData();
+        r.data.user = user;
+        r.data.accessToken = "local_token";
+        r.data.refreshToken = "local_refresh";
+        return r;
+    }
 
     // Convenience helpers used by repositories
     public String getAccessToken() {

@@ -1,6 +1,13 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
+
+// Inject API keys from local.properties into BuildConfig
+val localProps = Properties()
+val localFile = rootProject.file("local.properties")
+if (localFile.exists()) localProps.load(localFile.inputStream())
 
 android {
     namespace = "com.example.media_matrix"
@@ -12,8 +19,9 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "NEWS_API_KEY", "\"${localProps["NEWS_API_KEY"] ?: ""}\"")
+        buildConfigField("String", "GNEWS_API_KEY", "\"${localProps["GNEWS_API_KEY"] ?: ""}\"")
     }
 
     buildTypes {
@@ -25,12 +33,15 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 

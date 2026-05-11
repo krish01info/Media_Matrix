@@ -25,6 +25,20 @@ public class RadioFeedResponse {
     public List<Podcast>     getPodcasts()      { return data != null ? data.podcasts      : null; }
     public List<Article>     getLatestCoverage() { return data != null ? data.latestCoverage : null; }
 
+    /**
+     * Factory method — build a RadioFeedResponse from an in-memory list of streams.
+     * Used by RadioRepository when assembling results from Radio Browser API.
+     */
+    public static RadioFeedResponse fromStreams(List<RadioStream> streams) {
+        RadioFeedResponse r = new RadioFeedResponse();
+        r.success = true;
+        r.data = new RadioFeedData();
+        r.data.streams = streams;
+        r.data.podcasts = new java.util.ArrayList<>();
+        r.data.latestCoverage = new java.util.ArrayList<>();
+        return r;
+    }
+
     public static class RadioFeedData {
         @SerializedName("streams")
         private List<RadioStream> streams;

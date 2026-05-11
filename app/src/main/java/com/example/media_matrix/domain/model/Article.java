@@ -148,6 +148,7 @@ public class Article {
     public void setCategory(Category category) { this.category = category; }
     public void setSource(Source source) { this.source = source; }
     public void setReporter(Reporter reporter) { this.reporter = reporter; }
+    public void setSourceName(String sourceName) { this.sourceName = sourceName; }
 
     public String getFormattedInteractions() {
         if (interactionCount >= 1_000_000) {

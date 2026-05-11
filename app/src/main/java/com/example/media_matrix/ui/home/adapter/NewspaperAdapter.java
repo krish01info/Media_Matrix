@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.media_matrix.R;
 import com.example.media_matrix.databinding.ItemNewspaperBinding;
 import com.example.media_matrix.domain.model.Newspaper;
@@ -18,6 +17,15 @@ import java.util.List;
 public class NewspaperAdapter extends RecyclerView.Adapter<NewspaperAdapter.ViewHolder> {
 
     private List<Newspaper> newspapers = new ArrayList<>();
+    private OnNewspaperClickListener listener;
+
+    public interface OnNewspaperClickListener {
+        void onNewspaperClick(Newspaper newspaper);
+    }
+
+    public void setOnNewspaperClickListener(OnNewspaperClickListener l) {
+        this.listener = l;
+    }
 
     public void setNewspapers(List<Newspaper> newspapers) {
         this.newspapers = newspapers != null ? newspapers : new ArrayList<>();
@@ -51,15 +59,32 @@ public class NewspaperAdapter extends RecyclerView.Adapter<NewspaperAdapter.View
         }
 
         void bind(Newspaper newspaper) {
-            binding.newspaperName.setText(newspaper.getSourceShortName());
+            binding.newspaperName.setText(newspaper.getSourceName());
 
-            if (newspaper.getCoverImageUrl() != null) {
+            // Category tag
+            String cat = newspaper.getCategory();
+            if (cat != null && !cat.isEmpty()) {
+                binding.newspaperCategory.setText(cat);
+                binding.newspaperCategory.setVisibility(android.view.View.VISIBLE);
+            } else {
+                binding.newspaperCategory.setVisibility(android.view.View.GONE);
+            }
+
+            // Logo image (logo URL stored in coverImageUrl)
+            if (newspaper.getCoverImageUrl() != null && !newspaper.getCoverImageUrl().isEmpty()) {
                 Glide.with(binding.getRoot().getContext())
                         .load(newspaper.getCoverImageUrl())
-                        .transform(new CenterCrop())
                         .placeholder(R.color.surface_light)
+                        .error(R.drawable.ic_newspaper)
                         .into(binding.newspaperCover);
+            } else {
+                binding.newspaperCover.setImageResource(R.drawable.ic_newspaper);
             }
+
+            // Click — open reader
+            binding.getRoot().setOnClickListener(v -> {
+                if (listener != null) listener.onNewspaperClick(newspaper);
+            });
         }
     }
 }
